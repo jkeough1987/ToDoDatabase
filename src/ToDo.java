@@ -89,7 +89,7 @@ public class ToDo {
     }
 
     public static ToDoItem selectToDo(Connection conn, int id) throws SQLException {
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM todos INNER JOIN users on todos.user_id = users.id WHERE todos.id = ?");
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM todos INNER JOIN users on todos.user_id = users.id WHERE id = ?");
         ResultSet results = stmt.executeQuery();
         stmt.setInt(1, id);
         if (results.next()) {
